@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    /> 
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header> 
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events">
+      
+      <!-- @click = v-on:click -->
+      <h2>Events in Action</h2>
+      <button @click="increment">Add</button>
+      <button @click="decrement">Remove</button>
+      <p v-once>Starting value = {{ counter }}</p>
+      <p>Result: {{ counter }}</p>
+      <br><hr><br>
+      
+      <input type="text" v-model="firstname"/>
+      <input type="text" v-model="lastname"/>
+      <br><br>
+      <button @click="reset">reset</button>
+      <p>{{ fullname }}</p>
+      <p>My name is, {{ fullname }}</p>
+      <br><hr><br>
+
+      <input type="text" @input="setDEName($event, 'Schweinsteiger')" @keyup.enter="confirmInput"/>
+      <p> {{ confNameDE }}</p>
+      <p>My DE name is, {{ nameDE }}</p>
+      <br><hr><br>
+
+      <!-- :value = v-bind:value -->
+      <form v-on:submit.prevent="submitForm">
+        <input type="text" :value=''/>
+        <button type="submit">Sign up</button>
+      </form>
+
+    </section>
+  </body>
+</html>
